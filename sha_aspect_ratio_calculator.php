@@ -32,5 +32,13 @@ if(class_exists( 'Sha_IARC_Inc\Sha_Iarc_Init' ) )
     Sha_IARC_Inc\Sha_Iarc_Init::registerServices();
 }
 
+// Initializing updater classes
+if(class_exists( 'Sha_IARC_Inc\Updater\Sha_WP_Github_Updater' ) )
+{
+    if ( is_admin() ) {
+        new Sha_WP_Github_Updater( __FILE__, 'shaan07', "wp-aspect-ratio-calculator" );
+    }
+}
+
 
 ?>
