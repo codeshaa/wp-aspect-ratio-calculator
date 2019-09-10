@@ -1,0 +1,17 @@
+{
+    "name": "shaanz/wp-aspect-ratio-calculator",
+    "description": "An enhanced aspect ratio calculator built using VueJS for Wordpress",
+    "type": "project",
+    "license": "gplv3",
+    "authors": [
+        {
+            "name": "Sharun John",
+            "email": "sharunjon@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {},
+    "autoload": {
+        "psr-4": {"Sha_IARC_Inc\\": "./inc"}
+    }
+}
