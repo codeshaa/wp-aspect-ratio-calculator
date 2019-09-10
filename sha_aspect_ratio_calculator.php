@@ -32,6 +32,8 @@ if(class_exists( 'Sha_IARC_Inc\Sha_Iarc_Init' ) )
     Sha_IARC_Inc\Sha_Iarc_Init::registerServices();
 }
 
+use Sha_IARC_Inc\Updater\Sha_WP_Github_Updater;
+
 // Initializing updater classes
 if(class_exists( 'Sha_IARC_Inc\Updater\Sha_WP_Github_Updater' ) )
 {

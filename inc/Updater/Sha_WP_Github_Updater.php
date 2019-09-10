@@ -2,6 +2,7 @@
 
 namespace Sha_IARC_Inc\Updater;
 
+use stdClass;
 use Parsedown;
 
 class Sha_WP_Github_Updater {
