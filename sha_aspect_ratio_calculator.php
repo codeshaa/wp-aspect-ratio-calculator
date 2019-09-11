@@ -3,14 +3,14 @@
  * @author Sharun John <sharun@gmail.com>
  * @package ShaanzWPVue
  * @license GPLv3
- * @version 1.0.1
+ * @version 1.1.1
  */
 
 
 /**
  * Plugin Name: WP Aspect Ratio Calculator
  * Description: An enhanced aspect ratio calulator built on VueJS for Wordpress.
- * Version: 1.0.0
+ * Version: 1.1.1
  * Author: Sharun John
  * Author URI: https://shaanz.com
  * License: GPLv3 or later
@@ -31,6 +31,11 @@ if(class_exists( 'Sha_IARC_Inc\Sha_Iarc_Init' ) )
 {
     Sha_IARC_Inc\Sha_Iarc_Init::registerServices();
 }
+
+add_action( 'wp_enqueue_scripts', array( 'Sha_IARC_Inc\Sha_Iarc_Enqueue' , 'registerAllScripts' ) );
+
+add_shortcode( 'wparc', array( 'Sha_IARC_Inc\Sha_Iarc_Shortcode', 'sha_Aspect_Ratio_Calculator' ) );
+
 
 use Sha_IARC_Inc\Updater\Sha_WP_Github_Updater;
 

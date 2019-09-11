@@ -6,11 +6,8 @@ namespace Sha_IARC_Inc;
 
 class Sha_Iarc_Shortcode{
 
-    public function register(){
-        add_shortcode( 'wparc', array( $this, 'sha_Aspect_Ratio_Calculator' ) );
-    }
 
-    public function sha_Aspect_Ratio_Calculator(){
+    public static function sha_Aspect_Ratio_Calculator(){
 
         wp_enqueue_script('wp_vuejs');
         wp_enqueue_script('sha_iarc_script');
