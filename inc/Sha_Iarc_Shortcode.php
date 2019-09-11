@@ -29,6 +29,11 @@ class Sha_Iarc_Shortcode{
                             <input type="file" @change="onFileChange">
                         </div>
                     </div>
+                    <div v-if="!imgSrc" class="paste-section">
+                        <div class="paste-area">
+                            <input type="url" name="imagesrc" v-model="url">
+                        </div>
+                    </div>
                 </div>
     
                 <div v-if="width1 != 0 && height1 !=0" class="column image2">

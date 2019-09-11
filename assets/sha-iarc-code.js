@@ -102,6 +102,23 @@ var app = new Vue({
                 this.heightB = newHeight;
                 this.widthB = Math.round((this.widthA/this.heightA)*newHeight);
             }
+        },
+        url: {
+            get(){
+                return this.imgSrc;
+            },
+            set(newUrl){
+                if(/\.(jpg|gif|jpeg)$/.test(newUrl)){
+                    let img = new Image();
+                    var vm = this;
+                    img.src = newUrl;
+                    img.onload = function(){
+                        vm.widthA = this.width;
+                        vm.heightA = this.height;
+                        vm.imgSrc = newUrl;
+                    }
+                }
+            }
         }
     }
   })
