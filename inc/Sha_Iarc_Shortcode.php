@@ -16,11 +16,13 @@ class Sha_Iarc_Shortcode{
 
         <div id="mountCalc" @dragenter.stop.prevent @dragexit.stop.prevent @dragover.stop.prevent @drop.stop.prevent="onDrop">
             <div class="row">
-                <h3>WP Aspect Ratio Calculator</h3>
+                <h3>Image Aspect Ratio Calculator</h3>
                 <div class="column image1">
-                    <h5>Dimension of the First Image</h5>
+                    <h5>First Image</h5>
+                    <h6>Provide the dimension of the first image</h6>
                     <input type="number" name="width1" onfocus="this.select();" v-model.number="width1"><span class="cross">x</span> 
                     <input type="number" name="height1" onfocus="this.select();" v-model.number="height1">
+                    <h6>OR</h6>
                     <div v-if="!imgSrc" class="drop-section">
                         <div class="dropzone-area">
                         <div class="dropzone-text">
@@ -29,9 +31,10 @@ class Sha_Iarc_Shortcode{
                             <input type="file" @change="onFileChange">
                         </div>
                     </div>
+                    <h6>OR</h6>
                     <div v-if="!imgSrc" class="paste-section">
                         <div class="paste-area">
-                            <input type="url" name="imagesrc" v-model="url">
+                            <input type="url" name="imagesrc" v-model="url" placeholder="Paste an image URL here...">
                         </div>
                     </div>
                 </div>
@@ -53,9 +56,9 @@ class Sha_Iarc_Shortcode{
             </div>
     
             <!-- Upload Image Preview  -->
-            <div class="dropzone-preview">
-                <img :src="imgSrc" />
-                <button @click="removeImage" v-if="imgSrc">Remove</button>
+            <div v-if="imgSrc" class="dropzone-preview">
+                <button class="reset-button" @click="removeImage" v-if="imgSrc">Reset</button>
+                <img class="image-preview" :src="imgSrc" />     
             </div>
 
             <div id="snackbar">Copied to clipboard...</div>

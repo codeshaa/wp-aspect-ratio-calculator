@@ -50,6 +50,10 @@
     margin: 20px 20px;
 }
 
+.image-preview{
+    border: 5px solid #fff;
+}
+
 
 .dropzone-area {
     width: 80%;
@@ -109,12 +113,24 @@
     display: block;
 }
 
+.reset-button{
+    padding: 7px 35px;
+    margin: 10px auto;
+    background: #000;
+    color: #fff;
+    width: 100%;
+}
+.reset-button:hover{
+    background: rgb(43, 42, 42);
+    color: #fff;
+}
+
 /* The snackbar   */
 #snackbar {
     visibility: hidden;
     min-width: 250px; 
     margin-left: -125px; 
-    background-color: #333; 
+    background-color: rgb(247, 8, 147); 
     color: #fff; 
     text-align: center; 
     border-radius: 3px;
