@@ -14,25 +14,24 @@ class Sha_Iarc_Shortcode{
         wp_enqueue_style('sha_iarc_style');
         ?>
 
-        <div id="mountCalc" @dragenter.stop.prevent @dragexit.stop.prevent @dragover.stop.prevent @drop.stop.prevent="onDrop">
+        <div id="mountCalc" @dragenter.stop.prevent @dragexit.stop.prevent @dragover.stop.prevent @drop.prevent="onDrop">
             <div class="row">
                 <h3>Image Aspect Ratio Calculator</h3>
                 <div class="column image1">
-                    <h5>First Image</h5>
-                    <h6>Provide the dimension of the first image</h6>
+                    <h5>Provide the dimension of the first image</h5>
                     <input type="number" name="width1" onfocus="this.select();" v-model.number="width1"><span class="cross">x</span> 
                     <input type="number" name="height1" onfocus="this.select();" v-model.number="height1">
-                    <h6>OR</h6>
-                    <div v-if="!imgSrc" class="drop-section">
+                    <h6 v-if="width1 == 0 && height1 ==0">OR</h6>
+                    <div v-if="width1 == 0 && height1 ==0" class="drop-section">
                         <div class="dropzone-area">
                         <div class="dropzone-text">
-                            <span class="dropzone-title">Click to select</span>
+                            <span class="dropzone-title">Click to select OR drag n drop anywhere on grey area</span>
                         </div>
                             <input type="file" @change="onFileChange">
                         </div>
                     </div>
-                    <h6>OR</h6>
-                    <div v-if="!imgSrc" class="paste-section">
+                    <h6 v-if="width1 == 0 && height1 ==0">OR</h6>
+                    <div v-if="width1 == 0 && height1 ==0" class="paste-section">
                         <div class="paste-area">
                             <input type="url" name="imagesrc" v-model="url" placeholder="Paste an image URL here...">
                         </div>
@@ -56,9 +55,11 @@ class Sha_Iarc_Shortcode{
             </div>
     
             <!-- Upload Image Preview  -->
-            <div v-if="imgSrc" class="dropzone-preview">
-                <button class="reset-button" @click="removeImage" v-if="imgSrc">Reset</button>
-                <img class="image-preview" :src="imgSrc" />     
+            <div class="dropzone-preview">
+                <button class="reset-button" @click="removeImage" v-if="imgSrc || (width1 != 0 && height1 !=0)">Reset</button>
+                <div v-if="imgSrc">
+                    <img class="image-preview" :src="imgSrc" />
+                </div>         
             </div>
 
             <div id="snackbar">Copied to clipboard...</div>

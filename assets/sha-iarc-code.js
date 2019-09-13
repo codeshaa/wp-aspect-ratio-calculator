@@ -11,16 +11,10 @@ var app = new Vue({
         gcd: function(width, height){
             return (height == 0) ? width : this.gcd(height, width%height)
         },
-        onDrop(e){
-            imageUrl = e.dataTransfer.getData('URL');
-            let img = new Image();
-            var vm = this;
-            img.src = imageUrl;
-            img.onload = function(){
-                vm.widthA = this.width;
-                vm.heightA = this.height;
-                vm.imgSrc = imageUrl;
-            }
+        onDrop(e){       
+            var files = e.target.files || e.dataTransfer.files;
+            if (!files.length) return;
+            this.createImage(files[0]);
         },
         onFileChange(e) {
             var files = e.target.files || e.dataTransfer.files;
@@ -105,7 +99,9 @@ var app = new Vue({
         },
         url: {
             get(){
-                return this.imgSrc;
+                if(/\.(jpg|gif|jpeg)$/.test(this.imgSrc)){
+                    return this.imgSrc;
+                }
             },
             set(newUrl){
                 if(/\.(jpg|gif|jpeg)$/.test(newUrl)){

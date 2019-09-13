@@ -20,6 +20,9 @@
 #mountCalc .row .column{
     margin-bottom: 30px;
 }
+#mountCalc .column input[type="number"]{
+    width:38%;
+}
 #mountCalc .row .column .cross{
     color: rgb(5, 15, 109);
     padding: 0;
@@ -57,7 +60,7 @@
 
 .dropzone-area {
     width: 80%;
-    height: 100px;
+    height: 80px;
     position: relative;
     border: 2px dashed #CBCBCB;
     background: rgb(245, 238, 138);
