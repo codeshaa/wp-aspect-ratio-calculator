@@ -50,8 +50,8 @@ class Sha_Iarc_Shortcode{
                 <p id="img-ratio">{{ratio}}</p>
             </div>
             <div v-if="width2 != 0 && height2 !=0" class="row-result">
-                <h4 id="result">Your Dimension is: <span class="highlight">{{width2}} x {{height2}}</span></h4>
-                <input id="full-ratio" type="text" name="fullRatio" onfocus="this.select();document.execCommand('copy');toast();" ondblclick="this.select();document.execCommand('copy');toast();" v-model="fullRatio">
+                <h4 id="result">Dimension: <span class="highlight">{{width2}} x {{height2}}</span></h4>
+                <p style="display:inline;">Click to copy : </p><input id="full-ratio" type="text" name="fullRatio" onfocus="this.select();document.execCommand('copy');toast();" ondblclick="this.select();document.execCommand('copy');toast();" v-model="fullRatio">
             </div>
     
             <!-- Upload Image Preview  -->
